@@ -38,10 +38,10 @@ async function fetchsingledata(event){
     const datacontainer = document.getElementById('single-post');
     const uid = document.getElementById('uid').value;
     if(!datacontainer){
+        
         datacontainer.classList.add('hidden');
     }
-    datacontainer.classList.remove('hidden');
-    datacontainer.innerHTML="";
+    
     try{
        
         if(uid==""){
@@ -62,7 +62,7 @@ async function fetchsingledata(event){
         h3.textContent = "Title: "+data.title;
         p.textContent = "Post: "+data.body;
 
-        
+        datacontainer.innerHTML="";
         datacontainer.appendChild(h3);
         datacontainer.appendChild(p);
 
@@ -70,7 +70,8 @@ async function fetchsingledata(event){
     } catch(error){
         datacontainer.innerHTML='<p>'+error+'</p>';
     }
-    
+    datacontainer.classList.remove('hidden');
+
 }
 document.addEventListener('DOMContentLoaded',() => {
     document.getElementById('user-form').addEventListener('submit',fetchsingledata);
