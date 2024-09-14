@@ -10,13 +10,16 @@ async function fetchData(){
         const ul = document.createElement('ul');
         data.forEach(post =>{
             const li = document.createElement('li');
-            const h3 = document.createElement('h3');
+            const p1 = document.createElement('p');
+            const h3 = document.createElement('p');
             const p = document.createElement('p');
 
-            console.log(post)
-            h3.textContent = post.title;
-            p.textContent = post.body;
-
+            //console.log(post);
+            p1.textContent ="Id: "+post.id;
+            h3.textContent ="Title: "+post.title;
+            p.textContent = "Post: "+post.body;
+            
+            li.appendChild(p1);
             li.appendChild(h3);
             li.appendChild(p);
             ul.appendChild(li);
@@ -55,7 +58,7 @@ async function fetchsingledata(event){
         const p = document.createElement('p');
 
         h3.textContent = "Title: "+data.title;
-        p.textContent = data.body;
+        p.textContent = "Post: "+data.body;
 
         datacontainer.innerHTML="";
         datacontainer.appendChild(h3);
