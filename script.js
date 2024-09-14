@@ -36,11 +36,13 @@ async function fetchsingledata(event){
     event.preventDefault();
 
     const datacontainer = document.getElementById('single-post');
+    
     const uid = document.getElementById('uid').value;
-    if(!datacontainer){
-        datacontainer.classList.add('hidden');
-    }
+    console.log(uid);
     try{
+        if(!datacontainer){
+            datacontainer.classList.add('hidden');
+        }
        
         if(uid==""){
             throw new Error("Please enter the ID");
